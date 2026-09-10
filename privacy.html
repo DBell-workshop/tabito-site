@@ -38,7 +38,7 @@
 
 
 <h1>Tabito 旅行达人 · 隐私政策</h1>
-<p class="meta">最后更新：2026-09-09 · 适用版本：1.0 起</p>
+<p class="meta">最后更新：2026-09-10 · 适用版本：1.0 起</p>
 <p class="lang"><a href="#en">English</a> · <a href="#hant">繁體中文</a> · <a href="#ja">日本語</a> · <a href="#ko">한국어</a></p>
 
 <p class="lead">你在这个 App 里做的绝大多数事情，<strong>数据不出你的设备</strong>。
@@ -104,6 +104,30 @@
   <tr><td>一个两位国家码（例如 <code>CN</code>、<code>JP</code>），由请求来源推得</td>
       <td>按地区分摊模型成本，以及判断某个模型供应商在某个地区通不通。<strong>我们不记录你的 IP</strong></td></tr>
 </table>
+
+<h3>2.3b　你申请退款时，我们会告诉 Apple 你用掉了多少</h3>
+
+<p>你对一笔积分充值向 Apple 申请退款时，Apple 会问我们一个问题：
+<strong>这批分他用掉多少了？</strong>我们**默认会回答**，回答的内容只有这些：</p>
+<ul>
+  <li>这批分你用掉了百分之几（千分位的一个整数）</li>
+  <li>有没有正常到账（我们这边永远是「已到账」—— 验签通过才发分）</li>
+  <li>你买之前有没有免费试过（永远是「有」—— 注册就送 150 分）</li>
+  <li>我们建议 Apple 批还是不批（按你用掉的比例算：几乎没用 → 建议全额批；
+      用光了 → 建议不批；中间 → 建议按比例）</li>
+</ul>
+
+<p><strong>不包含</strong>你的姓名、邮箱、Apple ID、设备信息、位置、
+你输入过的任何文字或图片 —— Apple 的接口本身也不收这些。</p>
+
+<p><strong>开着对你不一定是坏事：</strong>你几乎没用就退款时，如实报上去
+反而更容易、更快批下来。真正被它挡住的是「买 → 花光 → 退款」再来一遍。</p>
+
+<p>🔴 <strong>随时可以关：「我的」→ 账号 → 「退款时告诉 Apple 我用了多少」。</strong>
+关掉之后我们对 Apple 的这个问题<strong>一句都不答</strong>（Apple 的规则是：
+没有你的同意就不许答，而答一个「不同意」会被它直接拒收 —— 没有中间态）。
+关掉不影响你申请退款，只是 Apple 少一份来自我们的材料。
+2026-09-10 之前就有账号的人<strong>默认是关的</strong>，要开得自己去开。</p>
 
 <h3>2.4　你填的车费是公开的</h3>
 <p>日本有几家铁路公司不提供可商用授权的票价数据（JR 东日本没有公开票价数据集，
@@ -181,6 +205,12 @@
 <p>我们改动这份政策时会更新本页顶部的「最后更新」日期，并在 App 内说明。
 <strong>如果将来我们要把数据用于这里没写过的目的，我们会先更新这份政策，而不是先做了再补文件。</strong></p>
 
+<p class="meta">2026-09-10 这一版的改动：加了 2.3b —— <strong>你申请退款时，
+我们默认会把「这批分你用掉了多少」告诉 Apple</strong>，逐条列出报什么、不报什么，
+以及在哪里关掉。在这之前这条链路是通的但从来没启用过（没有同意就一律不答）。
+新账号默认开，<strong>老账号默认关、不回填</strong> —— 他们注册时这一段还不存在，
+替他们补一个「同意」等于拿一份他们没见过的条款替他们签字。</p>
+
 <p class="meta">2026-09-09 这一版的改动：第五节多了第三条 ——
 <strong>注销时如果账上是负分（退款造成的欠账），我们会留下一个不可逆的哈希把它记住</strong>。
 在这之前，注销 + 用同一个 Apple ID 重新登录可以把欠账清零，等于「买 → 花光 → 退款」
@@ -212,6 +242,14 @@
 沒有 Apple ID 原文，反推不出你是誰。用同一個 Apple ID 重新登入時那筆欠帳會跟過來，
 下次儲值先抵掉，抵完就刪除。不這麼做的話，「註銷」就成了免費洗掉欠帳的按鈕。
 餘額不為負時什麼都不會留。</p>
+
+<p>你向 Apple 申請退款時，Apple 會問我們「這批積分他用掉多少了」。
+我們<strong>預設會回答</strong>，內容只有：用掉的百分比、有沒有正常到帳、
+你買之前有沒有免費試過、以及我們建議批或不批。<strong>不含</strong>姓名、
+信箱、Apple ID、裝置資訊、位置或你輸入過的任何文字與圖片。
+用得少時如實回報反而更快批下來。
+隨時可關：「我的」→ 帳號 →「退款時告訴 Apple 我用了多少」，
+關掉後我們一句都不答。2026-09-10 之前就有的帳號<strong>預設是關的</strong>。</p>
 
 <h2 id="en">English</h2>
 <p>Almost everything you do in this app <strong>stays on your device</strong>: itineraries, lists,
@@ -248,6 +286,16 @@ negative.</p>
 <p>We do <strong>no</strong> cross-app or cross-site tracking, use no advertising identifier, and have
 no third-party analytics, crash-reporting or advertising SDKs.</p>
 
+<p>When you ask Apple for a refund, Apple asks us how much of that batch of credits you
+had used. <strong>By default we answer</strong>, and the answer contains only: the
+percentage consumed, whether delivery succeeded, whether you had a free sample before
+buying, and whether we suggest granting or declining. It contains <strong>no</strong>
+name, email, Apple ID, device information, location, or any text or image you typed.
+Answering often helps you — if you had barely used the credits, the honest number tends
+to get the refund approved faster. You can turn it off at any time under
+Me → Account → "Share my usage with Apple for refunds"; then we say nothing at all.
+Accounts that existed before 2026-09-10 are <strong>off by default</strong>.</p>
+
 <h2 id="ja">日本語</h2>
 <p>このアプリで行うことのほとんどは、<strong>データが端末から出ません</strong>。
 旅程・リスト・家計簿・写真・撮影ポイント・メモはすべてお使いの端末にのみ保存されます。</p>
@@ -279,6 +327,15 @@ Apple から返金を受けると、使った分の費用は当社がすでに�
 そうしなければ、アカウント削除が負債を無料で消すための手段になってしまいます。
 残高がマイナスでない場合は何も残りません。</p>
 
+<p>Apple に返金を申請すると、Apple は当社に「そのポイントをどれだけ使ったか」を尋ねます。
+当社は<strong>既定で回答します</strong>。回答に含まれるのは、消費した割合、正常に付与されたか、
+購入前に無料で試したか、そして返金を認めるべきかどうかの当社の意見だけです。
+氏名・メールアドレス・Apple ID・端末情報・位置情報・入力した文章や画像は
+<strong>一切含みません</strong>。使った量が少ない場合、正直に伝えることでかえって
+早く承認されます。「マイページ」→ アカウント →「返金時に使用量を Apple に伝える」で
+いつでもオフにでき、オフにすると当社は一切回答しません。
+2026-09-10 より前からあるアカウントは<strong>既定でオフ</strong>です。</p>
+
 <h2 id="ko">한국어</h2>
 <p>이 앱에서 하는 일의 대부분은 <strong>데이터가 기기를 벗어나지 않습니다</strong>.
 일정·목록·가계부·사진·촬영 포인트·메모는 모두 사용자의 기기에만 저장됩니다.</p>
@@ -309,6 +366,16 @@ Apple から返金を受けると、使った分の費用は当社がすでに�
 같은 Apple ID로 다시 로그인하면 그 부채가 새 계정으로 따라오고, 다음 충전 시 먼저 상계되며 상계 후
 해당 행은 삭제됩니다. 그렇게 하지 않으면 계정 삭제가 부채를 무료로 지우는 수단이 됩니다.
 잔액이 마이너스가 아니면 아무것도 남지 않습니다.</p>
+
+<p>Apple에 환불을 신청하면 Apple은 저희에게 "그 크레딧을 얼마나 사용했는지" 묻습니다.
+저희는 <strong>기본적으로 답변합니다</strong>. 답변에 담기는 것은 사용한 비율,
+정상 지급 여부, 구매 전 무료로 사용해 봤는지, 그리고 환불을 승인해야 한다고 보는지에 대한
+저희 의견뿐입니다. 이름·이메일·Apple ID·기기 정보·위치·입력한 글이나 이미지는
+<strong>전혀 포함되지 않습니다</strong>. 적게 썼다면 사실대로 알리는 것이 오히려
+더 빨리 승인되게 합니다. '내 정보' → 계정 → '환불 시 사용량을 Apple에 알리기'에서
+언제든 끌 수 있으며, 끄면 저희는 아무 답도 하지 않습니다.
+2026-09-10 이전부터 있던 계정은 <strong>기본적으로 꺼져 있습니다</strong>.</p>
+
 
 <footer>
   <p><strong>北京灵可司文化科技有限公司</strong><br>
