@@ -38,7 +38,7 @@
 
 
 <h1>Tabito 旅行达人 · 隐私政策</h1>
-<p class="meta">最后更新：2026-09-10 · 适用版本：1.0 起</p>
+<p class="meta">最后更新：2026-09-20 · 适用版本：1.0 起（第 2.5 节自 1.3 起）</p>
 <p class="lang"><a href="#en">English</a> · <a href="#hant">繁體中文</a> · <a href="#ja">日本語</a> · <a href="#ko">한국어</a></p>
 
 <p class="lead">你在这个 App 里做的绝大多数事情，<strong>数据不出你的设备</strong>。
@@ -137,6 +137,48 @@
 上面没有你的名字、头像或任何能指向你的东西 —— 只有一个数字、一段行程、IC 还是单程票。
 它<strong>不会进我们那个交通费合计</strong>，那一栏只放我们自己算得出来的。</p>
 
+<h3>2.5　不登录也会发的：你用了哪个功能（自 1.3 起）</h3>
+
+<p>从 1.3 版开始，App 会把<strong>「你用了哪个功能、结果如何」</strong>发给我们。
+<strong>不登录也会发</strong> —— 这一条是故意的，下面说为什么。</p>
+
+<p><strong>会发的，就是下面这些，没有别的：</strong></p>
+<table>
+  <tr><th>什么</th><th>例子</th></tr>
+  <tr><td>一个事件名（共 18 个，写死在代码里，服务器只认这 18 个）</td>
+      <td><code>打开了 App</code>、<code>开始排行程</code>、<code>看到了付费墙</code>、
+          <code>取消了登录</code>、<code>AI 出了结果</code></td></tr>
+  <tr><td>几个<strong>枚举型标记</strong></td>
+      <td>哪个功能（<code>identify_spot</code>）、成功还是失败、用了多少毫秒、
+          在哪一屏报的什么错（<code>signin</code> / <code>network</code>）</td></tr>
+  <tr><td>一个<strong>安装标识</strong>：装一次生成的随机串</td>
+      <td>卸载即失效，<strong>不是广告标识符</strong>，不跨 App，别的 App 读不到</td></tr>
+  <tr><td>App 版本号、一个两位国家码</td>
+      <td><code>1.3</code>、<code>CN</code></td></tr>
+</table>
+
+<p><strong>不会发的：</strong></p>
+<ul>
+  <li><strong>你打的字、你问 AI 的话、AI 给你的回答</strong></li>
+  <li><strong>你的行程内容、清单、账目、照片、笔记</strong></li>
+  <li>你的 IP 地址、设备序列号、姓名、邮箱</li>
+</ul>
+
+<p>这不只是承诺。技术上，这些标记<strong>只允许是字母、数字和
+<code>. _ : -</code>，最长 32 位</strong>；服务器对不符合的整批拒收。
+也就是说中文、空格、标点<strong>结构性地无法通过这条路</strong> ——
+就算哪天有人写错代码想把你的提问塞进来，它也进不来。</p>
+
+<p><strong>为什么不登录也要发。</strong>我们想知道的是
+<strong>人在哪一步走掉了</strong>：下载了没打开？打开了没排行程？
+排到一半退了？看到价格就走了？这些事<strong>全都发生在登录之前</strong>。
+只记已登录用户的话，等于把最想弄明白的那一段人为删掉。</p>
+
+<p><strong>这一条没有开关。</strong>我们没有给它做一个「关闭统计」的按钮，
+理由照实说：它记的不是你，是这个 App 哪里做得不好，而且它记的东西里
+没有一样能指向你本人。如果你不接受这一点，可以不使用这个 App ——
+这比给你一个开关然后指望你不去动它更诚实。</p>
+
 <h2>三、AI 功能把数据发给谁</h2>
 
 <p>两个 AI 功能 ——「照片认景」和「AI 排行程」—— 需要把内容交给
@@ -150,12 +192,16 @@
 但内容到了供应商那一端如何处理、留存多久，适用<strong>他们</strong>的政策，
 不适用这一份。<strong>如果你不希望任何内容离开设备，就不要使用这两个功能</strong> ——
 行程规划、票价精算、「这张券划不划算」、问路看板、对账
-<strong>全部离线可用，而且永远免费</strong>，不需要账号。</p>
+<strong>全部离线可用，而且永远免费</strong>，不需要账号。
+（但请注意：<strong>「你用过这些功能」这件事本身仍然会被记下来</strong>，
+见第 2.5 节 —— 内容不发，用没用发。）</p>
 
 <h2>四、我们不做的事</h2>
 <ul>
   <li><strong>不做跨 App 或跨网站追踪</strong>，不使用广告标识符（IDFA），没有接入 ATT 的必要</li>
-  <li><strong>没有第三方分析 SDK、没有崩溃上报 SDK、没有广告 SDK</strong></li>
+  <li><strong>没有第三方分析 SDK、没有崩溃上报 SDK、没有广告 SDK</strong>
+      —— 第 2.5 节那份使用统计是我们自己写的，数据只进我们自己的库，
+      不经过任何第三方</li>
   <li><strong>不出售、不共享</strong>你的数据给任何第三方做营销</li>
   <li><strong>不上传你拍的照片和你丢进清单的截图</strong> —— 动画截图受著作权保护，我们不分发、不展示给其他用户。唯一的例外是你自己按下「认一下这是哪儿」的那一张</li>
 </ul>
@@ -205,6 +251,11 @@
 <p>我们改动这份政策时会更新本页顶部的「最后更新」日期，并在 App 内说明。
 <strong>如果将来我们要把数据用于这里没写过的目的，我们会先更新这份政策，而不是先做了再补文件。</strong></p>
 
+<p class="meta">2026-09-20 这一版的改动：加了 2.5 —— <strong>自 1.3 起，
+App 会记录「你用了哪个功能、结果如何」，不登录也记</strong>。逐条列出发什么、
+不发什么，以及为什么这一条没有开关。在这之前我们只在你花钱的那一刻才看得见你，
+于是「人在哪一步走掉了」这个问题根本答不出来。<strong>内容不发，用没用发。</strong></p>
+
 <p class="meta">2026-09-10 这一版的改动：加了 2.3b —— <strong>你申请退款时，
 我们默认会把「这批分你用掉了多少」告诉 Apple</strong>，逐条列出报什么、不报什么，
 以及在哪里关掉。在这之前这条链路是通的但从来没启用过（没有同意就一律不答）。
@@ -251,6 +302,15 @@
 隨時可關：「我的」→ 帳號 →「退款時告訴 Apple 我用了多少」，
 關掉後我們一句都不答。2026-09-10 之前就有的帳號<strong>預設是關的</strong>。</p>
 
+<p><strong>自 1.3 起</strong>，App 會記錄<strong>「你用了哪個功能、結果如何」</strong>：
+事件名（共 18 個，寫死在程式裡）、幾個列舉型標記（哪個功能、成功或失敗、花了幾毫秒、
+在哪一頁報了什麼錯）、一個裝一次就產生的隨機安裝識別碼（<strong>不是廣告識別碼</strong>，
+解除安裝即失效）、App 版本與兩位國碼。<strong>不會</strong>送出你打的字、你問 AI 的話、
+AI 的回答、你的行程內容、照片、IP 或姓名。技術上這些標記只允許字母、數字與
+<code>. _ : -</code>，最長 32 位，中文與空白在結構上就無法通過。
+<strong>未登入也會送</strong> &mdash; 我們想知道人是在哪一步離開的，而那幾乎都發生在登入之前。
+這一條沒有開關。</p>
+
 <h2 id="en">English</h2>
 <p>Almost everything you do in this app <strong>stays on your device</strong>: itineraries, lists,
 expenses, photos, camera spots and notes are written only to your own device.</p>
@@ -296,6 +356,17 @@ to get the refund approved faster. You can turn it off at any time under
 Me → Account → "Share my usage with Apple for refunds"; then we say nothing at all.
 Accounts that existed before 2026-09-10 are <strong>off by default</strong>.</p>
 
+<p><strong>From 1.3</strong> the app records <strong>which feature you used and how it went</strong>:
+an event name (18 in total, hard-coded), a few enum-style tags (which action, success or failure,
+how many milliseconds, which screen showed which error), a random install identifier created once
+per install (<strong>not an advertising identifier</strong>; it dies on uninstall), the app version
+and a two-letter country code. It does <strong>not</strong> send what you typed, what you asked the
+AI, the AI's answer, your itinerary, your photos, your IP or your name. Technically those tags may
+contain only letters, digits and <code>. _ : -</code>, up to 32 characters &mdash; Chinese, spaces
+and punctuation structurally cannot get through. <strong>It is sent even when you are not signed
+in</strong>: we want to know where people drop off, and that almost always happens before sign-in.
+There is no switch for this.</p>
+
 <h2 id="ja">日本語</h2>
 <p>このアプリで行うことのほとんどは、<strong>データが端末から出ません</strong>。
 旅程・リスト・家計簿・写真・撮影ポイント・メモはすべてお使いの端末にのみ保存されます。</p>
@@ -335,6 +406,16 @@ Apple から返金を受けると、使った分の費用は当社がすでに�
 早く承認されます。「マイページ」→ アカウント →「返金時に使用量を Apple に伝える」で
 いつでもオフにでき、オフにすると当社は一切回答しません。
 2026-09-10 より前からあるアカウントは<strong>既定でオフ</strong>です。</p>
+
+<p><strong>1.3 以降</strong>、アプリは<strong>「どの機能を使い、結果はどうだったか」</strong>を
+記録します。送るのはイベント名（全 18 種、コードに固定）、いくつかの列挙値（どの機能か、
+成功か失敗か、何ミリ秒か、どの画面でどんなエラーが出たか）、インストールごとに一度だけ
+生成されるランダムな識別子（<strong>広告識別子ではありません</strong>。アンインストールで
+消えます）、アプリのバージョン、2 文字の国コードだけです。入力した文章、AI への質問、
+AI の回答、旅程、写真、IP、氏名は<strong>送りません</strong>。技術的にもこれらの値は
+英数字と <code>. _ : -</code> のみ・最大 32 文字に制限されており、日本語や空白は構造上
+通りません。<strong>ログインしていなくても送ります</strong> &mdash; 離脱がどこで起きるかを
+知りたいからで、それはほぼログイン前に起きます。この項目にオフの設定はありません。</p>
 
 <h2 id="ko">한국어</h2>
 <p>이 앱에서 하는 일의 대부분은 <strong>데이터가 기기를 벗어나지 않습니다</strong>.
@@ -376,6 +457,17 @@ Apple から返金を受けると、使った分の費用は当社がすでに�
 언제든 끌 수 있으며, 끄면 저희는 아무 답도 하지 않습니다.
 2026-09-10 이전부터 있던 계정은 <strong>기본적으로 꺼져 있습니다</strong>.</p>
 
+
+<p><strong>1.3부터</strong> 앱은 <strong>어떤 기능을 썼고 결과가 어땠는지</strong>를
+기록합니다. 보내는 것은 이벤트 이름(총 18개, 코드에 고정), 몇 개의 열거형 태그(어떤
+기능인지, 성공인지 실패인지, 몇 밀리초 걸렸는지, 어느 화면에서 어떤 오류가 났는지),
+설치할 때 한 번 만들어지는 임의의 설치 식별자(<strong>광고 식별자가 아니며</strong> 앱을
+지우면 사라집니다), 앱 버전, 두 자리 국가 코드뿐입니다. 입력한 글, AI에게 물어본 말,
+AI의 답변, 일정 내용, 사진, IP, 이름은 <strong>보내지 않습니다</strong>. 기술적으로도 이
+값들은 영문자·숫자와 <code>. _ : -</code>만, 최대 32자로 제한되어 있어 한글이나 공백은
+구조적으로 통과할 수 없습니다. <strong>로그인하지 않아도 보냅니다</strong> &mdash; 사람들이
+어느 단계에서 떠나는지 알고 싶은데, 그건 거의 로그인 전에 일어나기 때문입니다.
+이 항목에는 끄는 설정이 없습니다.</p>
 
 <footer>
   <p><strong>北京灵可司文化科技有限公司</strong><br>
