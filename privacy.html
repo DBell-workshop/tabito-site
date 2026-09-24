@@ -38,7 +38,7 @@
 
 
 <h1>Tabito 旅行达人 · 隐私政策</h1>
-<p class="meta">最后更新：2026-09-20 · 适用版本：1.0 起（第 2.5 节自 1.3 起）</p>
+<p class="meta">最后更新：2026-09-23 · 适用版本：1.0 起（第 2.5 节自 1.3 起，第 2.6 节自 1.6 起）</p>
 <p class="lang"><a href="#en">English</a> · <a href="#hant">繁體中文</a> · <a href="#ja">日本語</a> · <a href="#ko">한국어</a></p>
 
 <p class="lead">你在这个 App 里做的绝大多数事情，<strong>数据不出你的设备</strong>。
@@ -53,13 +53,15 @@
   <tr><td>拍摄位置与朝向（机位）</td></tr>
   <tr><td>私人笔记</td></tr>
   <tr><td>界面语言选择、问路看板的常用句排序</td><td>系统偏好设置</td></tr>
+  <tr><td>下载的语音讲解（自 1.6 起）</td><td>「应用程序支持」目录，<strong>不进 iCloud 备份</strong> —— 随时能重新下载，不占你的备份空间</td></tr>
 </table>
 
 <p>我们看不到这些，服务器上也没有它们的副本。删除 App 就一起删除。</p>
 
 <h3>位置</h3>
-<p>定位用于两件事：算「你现在在哪一站、下一个去哪最划算」，以及在你用相机拍照时
-记下拍摄位置和朝向。<strong>只在你使用 App 期间获取，不做后台定位，坐标不上传。</strong></p>
+<p>定位用于三件事：算「你现在在哪一站、下一个去哪最划算」；在你用相机拍照时
+记下拍摄位置和朝向；以及（自 1.6 起）在「今天」页上提示你到了哪条圣地附近、可以听讲解 ——
+这一条只在你打开 App、看着那一页时才判断，坐标只在设备上用来比距离。<strong>只在你使用 App 期间获取，不做后台定位，坐标不上传。</strong></p>
 <p>从相册选入的照片，我们只读取照片自身携带的位置信息，
 <strong>绝不用「你现在在哪」顶替</strong> —— 那会把一张去年在东京拍的照片记成你家。</p>
 
@@ -145,7 +147,7 @@
 <p><strong>会发的，就是下面这些，没有别的：</strong></p>
 <table>
   <tr><th>什么</th><th>例子</th></tr>
-  <tr><td>一个事件名（共 18 个，写死在代码里，服务器只认这 18 个）</td>
+  <tr><td>一个事件名（共 19 个，写死在代码里，服务器只认这 19 个）</td>
       <td><code>打开了 App</code>、<code>开始排行程</code>、<code>看到了付费墙</code>、
           <code>取消了登录</code>、<code>AI 出了结果</code></td></tr>
   <tr><td>几个<strong>枚举型标记</strong></td>
@@ -178,6 +180,18 @@
 理由照实说：它记的不是你，是这个 App 哪里做得不好，而且它记的东西里
 没有一样能指向你本人。如果你不接受这一点，可以不使用这个 App ——
 这比给你一个开关然后指望你不去动它更诚实。</p>
+
+<h3>2.6　语音讲解：从我们的服务器下载（自 1.6 起）</h3>
+<p>圣地的语音讲解是预先录好的音频，你点「听讲解」时从 <code>audio.linkos.cc</code> 下载到设备上。</p>
+<ul>
+  <li><strong>下载请求里没有你的账号、没有安装标识、没有任何能指向你的东西</strong> ——
+      App 用一个单独的、不存 cookie 的连接去下载。</li>
+  <li>文件存放和分发用的是 Cloudflare。和访问任何网站一样，传输过程中它会看到你的 IP；
+      <strong>我们没有开启访问日志，不记录谁下载了哪一条。</strong></li>
+  <li>你<strong>放</strong>了哪一处的讲解，会作为第 2.5 节里的一个事件（<code>narration_play</code>，
+      只带圣地编号和讲解语言）进使用统计 —— 我们据此决定下一批先给哪些圣地补讲解。</li>
+  <li>讲解是免费的，不需要登录，不扣积分。</li>
+</ul>
 
 <h2>三、AI 功能把数据发给谁</h2>
 
@@ -251,6 +265,10 @@
 <p>我们改动这份政策时会更新本页顶部的「最后更新」日期，并在 App 内说明。
 <strong>如果将来我们要把数据用于这里没写过的目的，我们会先更新这份政策，而不是先做了再补文件。</strong></p>
 
+<p class="meta">2026-09-23 这一版的改动：加了 2.6 —— <strong>自 1.6 起，圣地的语音讲解从我们的服务器下载</strong>。
+写明下载请求里不带你是谁、我们不记下载日志、讲解音频不进 iCloud 备份；
+第 2.5 节的事件从 18 个变成 19 个（多了「放了一段讲解」）；定位的用途多了一条「到了圣地附近提示」。</p>
+
 <p class="meta">2026-09-20 这一版的改动：加了 2.5 —— <strong>自 1.3 起，
 App 会记录「你用了哪个功能、结果如何」，不登录也记</strong>。逐条列出发什么、
 不发什么，以及为什么这一条没有开关。在这之前我们只在你花钱的那一刻才看得见你，
@@ -303,13 +321,18 @@ App 会记录「你用了哪个功能、结果如何」，不登录也记</stron
 關掉後我們一句都不答。2026-09-10 之前就有的帳號<strong>預設是關的</strong>。</p>
 
 <p><strong>自 1.3 起</strong>，App 會記錄<strong>「你用了哪個功能、結果如何」</strong>：
-事件名（共 18 個，寫死在程式裡）、幾個列舉型標記（哪個功能、成功或失敗、花了幾毫秒、
+事件名（共 19 個，寫死在程式裡）、幾個列舉型標記（哪個功能、成功或失敗、花了幾毫秒、
 在哪一頁報了什麼錯）、一個裝一次就產生的隨機安裝識別碼（<strong>不是廣告識別碼</strong>，
 解除安裝即失效）、App 版本與兩位國碼。<strong>不會</strong>送出你打的字、你問 AI 的話、
 AI 的回答、你的行程內容、照片、IP 或姓名。技術上這些標記只允許字母、數字與
 <code>. _ : -</code>，最長 32 位，中文與空白在結構上就無法通過。
 <strong>未登入也會送</strong> &mdash; 我們想知道人是在哪一步離開的，而那幾乎都發生在登入之前。
 這一條沒有開關。</p>
+
+<p><strong>自 1.6 起</strong>，聖地的語音講解從 <code>audio.linkos.cc</code> 下載到裝置上：
+下載請求裡<strong>沒有帳號、沒有安裝識別碼</strong>；存放與分發用的是 Cloudflare，傳輸時會看到你的 IP，
+但<strong>我們沒有開啟存取紀錄，不記錄誰下載了哪一段</strong>。講解音訊不進 iCloud 備份。
+你播放了哪一處的講解，會以一個事件（<code>narration_play</code>，只帶聖地編號與語言）進入上面那份使用統計。</p>
 
 <h2 id="en">English</h2>
 <p>Almost everything you do in this app <strong>stays on your device</strong>: itineraries, lists,
@@ -357,7 +380,7 @@ Me → Account → "Share my usage with Apple for refunds"; then we say nothing 
 Accounts that existed before 2026-09-10 are <strong>off by default</strong>.</p>
 
 <p><strong>From 1.3</strong> the app records <strong>which feature you used and how it went</strong>:
-an event name (18 in total, hard-coded), a few enum-style tags (which action, success or failure,
+an event name (19 in total, hard-coded), a few enum-style tags (which action, success or failure,
 how many milliseconds, which screen showed which error), a random install identifier created once
 per install (<strong>not an advertising identifier</strong>; it dies on uninstall), the app version
 and a two-letter country code. It does <strong>not</strong> send what you typed, what you asked the
@@ -366,6 +389,13 @@ contain only letters, digits and <code>. _ : -</code>, up to 32 characters &mdas
 and punctuation structurally cannot get through. <strong>It is sent even when you are not signed
 in</strong>: we want to know where people drop off, and that almost always happens before sign-in.
 There is no switch for this.</p>
+
+<p><strong>From 1.6</strong> the audio guides for each spot are downloaded from <code>audio.linkos.cc</code>.
+The download request carries <strong>no account and no install identifier</strong>. The files are stored and
+served by Cloudflare, which, like any website, sees your IP address in transit; <strong>we have no access
+logging turned on and do not record who downloaded what</strong>. Audio guides are excluded from your iCloud
+backup. Playing a guide is recorded as one of the events above (<code>narration_play</code>, with only the
+spot ID and language).</p>
 
 <h2 id="ja">日本語</h2>
 <p>このアプリで行うことのほとんどは、<strong>データが端末から出ません</strong>。
@@ -408,7 +438,7 @@ Apple から返金を受けると、使った分の費用は当社がすでに�
 2026-09-10 より前からあるアカウントは<strong>既定でオフ</strong>です。</p>
 
 <p><strong>1.3 以降</strong>、アプリは<strong>「どの機能を使い、結果はどうだったか」</strong>を
-記録します。送るのはイベント名（全 18 種、コードに固定）、いくつかの列挙値（どの機能か、
+記録します。送るのはイベント名（全 19 種、コードに固定）、いくつかの列挙値（どの機能か、
 成功か失敗か、何ミリ秒か、どの画面でどんなエラーが出たか）、インストールごとに一度だけ
 生成されるランダムな識別子（<strong>広告識別子ではありません</strong>。アンインストールで
 消えます）、アプリのバージョン、2 文字の国コードだけです。入力した文章、AI への質問、
@@ -416,6 +446,13 @@ AI の回答、旅程、写真、IP、氏名は<strong>送りません</strong>�
 英数字と <code>. _ : -</code> のみ・最大 32 文字に制限されており、日本語や空白は構造上
 通りません。<strong>ログインしていなくても送ります</strong> &mdash; 離脱がどこで起きるかを
 知りたいからで、それはほぼログイン前に起きます。この項目にオフの設定はありません。</p>
+
+<p><strong>1.6 以降</strong>、聖地の音声ガイドは <code>audio.linkos.cc</code> から端末にダウンロードします。
+ダウンロードのリクエストには<strong>アカウントもインストール識別子も含みません</strong>。保存と配信には
+Cloudflare を使っており、一般のウェブサイトと同じく通信中に IP アドレスが見えますが、
+<strong>当社はアクセスログを有効にしておらず、誰がどのガイドを取得したかは記録しません</strong>。
+音声ガイドは iCloud バックアップの対象外です。ガイドを再生したことは、上記のイベントの一つ
+（<code>narration_play</code>、聖地 ID と言語のみ）として記録されます。</p>
 
 <h2 id="ko">한국어</h2>
 <p>이 앱에서 하는 일의 대부분은 <strong>데이터가 기기를 벗어나지 않습니다</strong>.
@@ -459,7 +496,7 @@ AI の回答、旅程、写真、IP、氏名は<strong>送りません</strong>�
 
 
 <p><strong>1.3부터</strong> 앱은 <strong>어떤 기능을 썼고 결과가 어땠는지</strong>를
-기록합니다. 보내는 것은 이벤트 이름(총 18개, 코드에 고정), 몇 개의 열거형 태그(어떤
+기록합니다. 보내는 것은 이벤트 이름(총 19개, 코드에 고정), 몇 개의 열거형 태그(어떤
 기능인지, 성공인지 실패인지, 몇 밀리초 걸렸는지, 어느 화면에서 어떤 오류가 났는지),
 설치할 때 한 번 만들어지는 임의의 설치 식별자(<strong>광고 식별자가 아니며</strong> 앱을
 지우면 사라집니다), 앱 버전, 두 자리 국가 코드뿐입니다. 입력한 글, AI에게 물어본 말,
@@ -468,6 +505,13 @@ AI의 답변, 일정 내용, 사진, IP, 이름은 <strong>보내지 않습니�
 구조적으로 통과할 수 없습니다. <strong>로그인하지 않아도 보냅니다</strong> &mdash; 사람들이
 어느 단계에서 떠나는지 알고 싶은데, 그건 거의 로그인 전에 일어나기 때문입니다.
 이 항목에는 끄는 설정이 없습니다.</p>
+
+<p><strong>1.6부터</strong> 성지 음성 해설은 <code>audio.linkos.cc</code>에서 기기로 내려받습니다.
+다운로드 요청에는 <strong>계정도 설치 식별자도 들어 있지 않습니다</strong>. 파일 보관과 전송에는
+Cloudflare를 쓰며, 여느 웹사이트와 마찬가지로 전송 중에 IP 주소가 보이지만
+<strong>저희는 접근 로그를 켜 두지 않았고, 누가 어떤 해설을 내려받았는지 기록하지 않습니다</strong>.
+음성 해설은 iCloud 백업에 포함되지 않습니다. 해설을 재생한 것은 위 이벤트 중 하나
+(<code>narration_play</code>, 성지 ID와 언어만)로 기록됩니다.</p>
 
 <footer>
   <p><strong>北京灵可司文化科技有限公司</strong><br>
